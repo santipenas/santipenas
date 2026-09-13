@@ -925,6 +925,56 @@
 /* -------------------------------------------------------------------
    9. Tech Insights & Blog Cards
    ------------------------------------------------------------------- */
+.blog-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.blog-filter-btn {
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.blog-filter-btn:hover {
+  border-color: var(--border-active);
+  color: var(--text-primary);
+  background: var(--surface-glass);
+}
+
+.blog-filter-btn.active {
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.18);
+}
+
+.blog-filter-count {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+}
+
+.blog-filter-btn.active .blog-filter-count {
+  background: rgba(0, 240, 255, 0.25);
+  color: #ffffff;
+}
+
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -932,11 +982,21 @@
 }
 
 .blog-card {
-  padding: 2rem;
+  padding: 2.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
 .blog-meta-row {
@@ -945,8 +1005,23 @@
   justify-content: space-between;
   font-size: 0.8rem;
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   font-family: var(--font-mono);
+}
+
+.blog-topic-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 240, 255, 0.08);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  margin-bottom: 0.9rem;
 }
 
 .blog-card-title {
@@ -954,14 +1029,19 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
-  line-height: 1.35;
+  margin-bottom: 0.85rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.blog-card:hover .blog-card-title {
+  color: #ffffff;
 }
 
 .blog-card-summary {
   font-size: 0.92rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 1.5rem;
 }
 
@@ -972,6 +1052,57 @@
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--accent-cyan);
+  transition: transform 0.2s ease, gap 0.2s ease;
+}
+
+.blog-card:hover .btn-read-article {
+  gap: 0.65rem;
+}
+
+/* Article Reader Modal Typography */
+.article-body-content p {
+  margin-bottom: 1.35rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+}
+
+.article-body-content h3 {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  margin: 2rem 0 0.85rem 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.article-body-content blockquote {
+  border-left: 3px solid var(--accent-cyan);
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  background: rgba(0, 240, 255, 0.05);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.article-body-content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: var(--accent-cyan);
+}
+
+.article-body-content ul,
+.article-body-content ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.article-body-content li {
+  margin-bottom: 0.5rem;
 }
 
 /* -------------------------------------------------------------------

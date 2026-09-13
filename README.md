@@ -63,7 +63,7 @@ Open [`js/data/projects-data.js`](./js/data/projects-data.js) and add an entry:
 {
   id: 'my-new-agentic-tool',
   title: 'Autonomous Multi-Agent Scheduler',
-  category: 'agentic', // 'agentic' | 'rl' | 'genai' | 'bigdata' | 'ml' | 'dl-nlp' | 'stats'
+  category: 'agentic', // 'agentic' | 'rag' | 'timeseries' | 'rl' | 'genai' | 'bigdata' | 'ml' | 'dl-nlp' | 'stats'
   badge: 'Production Tool',
   featured: false,
   tagline: 'High-throughput event coordination',
@@ -89,6 +89,8 @@ Open [`js/data/articles-data.js`](./js/data/articles-data.js) and add an entry:
 ```javascript
 {
   id: 'my-new-tech-essay',
+  category: 'agentic', // 'agentic' | 'data' | 'google' | 'telco' | 'mlops'
+  categoryName: 'Agentic & AI Systems',
   title: 'State of Open Source AI Weights in Enterprise',
   date: 'September 2026',
   readTime: '5 min read',

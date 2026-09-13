@@ -43,7 +43,7 @@
   animation: cursorBlink 1s infinite;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints & Mobile-First Polish */
 @media (max-width: 992px) {
   .nav-links {
     display: none;
@@ -58,23 +58,53 @@
     flex-direction: column;
     position: absolute;
     top: 4.5rem;
-    left: 1.25rem;
-    right: 1.25rem;
-    background: rgba(12, 17, 30, 0.96);
+    left: 1rem;
+    right: 1rem;
+    background: rgba(12, 17, 30, 0.97);
     backdrop-filter: var(--blur-heavy);
+    -webkit-backdrop-filter: var(--blur-heavy);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 18px;
-    padding: 1.5rem;
-    gap: 1rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    padding: 1.25rem;
+    gap: 0.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), var(--shadow-glow-cyan);
+    animation: fadeInDown 0.25s ease forwards;
+  }
+
+  .nav-links.mobile-open .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: var(--transition-smooth);
+  }
+
+  .nav-links.mobile-open .nav-link:hover,
+  .nav-links.mobile-open .nav-link.active {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--accent-cyan);
+  }
+
+  .nav-links.mobile-open .nav-link.active::after {
+    display: none;
   }
 
   .skills-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
   .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .contact-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .timeline::before {
@@ -91,31 +121,385 @@
 }
 
 @media (max-width: 640px) {
+  .app-container {
+    padding: 0 1rem;
+  }
+
   .section {
-    padding: 4rem 0;
+    padding: 3.75rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.2rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* Navbar */
+  .navbar-wrapper {
+    top: 0.65rem;
+    padding: 0 0.65rem;
+  }
+
+  .navbar {
+    padding: 0.5rem 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .navbar-brand {
+    font-size: 0.95rem;
+    gap: 0.5rem;
+  }
+
+  .brand-avatar-badge {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  .btn-nav-terminal {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: auto;
+    padding-top: 6.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-status-badge {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.85rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 8vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
   }
 
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
   }
 
   .btn-primary, .btn-secondary {
     width: 100%;
     justify-content: center;
+    padding: 0.8rem 1.4rem;
+    font-size: 0.92rem;
+  }
+
+  .hero-social-strip {
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  /* Terminal */
+  .terminal-container {
+    border-radius: 14px;
+  }
+
+  .terminal-header {
+    padding: 0.7rem 1rem;
+  }
+
+  .terminal-body {
+    padding: 1rem 0.85rem;
+    font-size: 0.82rem;
+    min-height: 220px;
+    max-height: 340px;
+    line-height: 1.5;
+  }
+
+  .terminal-suggestions {
+    padding: 0.6rem 0.85rem;
+    gap: 0.35rem;
+  }
+
+  .terminal-chip {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  /* Adaptability Banner */
+  .adaptability-banner {
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin: 2rem auto;
+  }
+
+  .banner-title {
+    font-size: 1.25rem;
+  }
+
+  .banner-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* Skills Matrix */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .skill-card {
+    padding: 1.35rem;
+    border-radius: 14px;
+  }
+
+  .skill-card-title {
+    font-size: 1.15rem;
+  }
+
+  .skill-card-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .competency-item {
+    font-size: 0.84rem;
+  }
+
+  .skill-tools-strip {
+    padding-top: 1rem;
+    gap: 0.35rem;
+  }
+
+  .tool-tag {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* Projects & Portfolio Controls */
+  .projects-controls {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .projects-search-input {
+    padding: 0.75rem 1rem 0.75rem 2.6rem;
+    font-size: 0.88rem;
+  }
+
+  .search-icon-pos {
+    left: 0.9rem;
+  }
+
+  /* Horizontal touch-scroll for category pills */
+  .category-filter-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0.25rem 0.5rem 0.75rem 0.5rem;
+    gap: 0.45rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-padding: 0.5rem;
+  }
+
+  .category-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  /* Projects Grid */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+  }
+
+  .project-card {
+    padding: 1.35rem;
+    border-radius: 14px;
+  }
+
+  .project-card-title {
+    font-size: 1.15rem;
+  }
+
+  .project-card-tagline {
+    font-size: 0.82rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.65rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .metric-label {
+    font-size: 0.68rem;
+  }
+
+  .metric-value {
+    font-size: 0.85rem;
+  }
+
+  .project-card-footer {
+    padding-top: 1rem;
+  }
+
+  /* Project Modal */
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .modal-card {
+    padding: 1.35rem;
+    border-radius: 16px;
+    max-height: 90vh;
+  }
+
+  .modal-card h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .modal-close-btn {
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .modal-architecture-box {
+    padding: 0.75rem;
+    font-size: 0.72rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+
+  .modal-card div[style*="display: flex; align-items: center; gap: 1rem"] {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .modal-card div[style*="display: flex; align-items: center; gap: 1rem"] .btn-primary,
+  .modal-card div[style*="display: flex; align-items: center; gap: 1rem"] .btn-secondary {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Timeline */
+  .timeline-card {
+    padding: 1.25rem;
+  }
+
+  .timeline-role {
+    font-size: 1.1rem;
+  }
+
+  .timeline-achievements {
+    font-size: 0.88rem;
+  }
+
+  /* Blog */
+  .blog-filter-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 0.25rem 0.25rem 0.75rem 0.25rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .blog-filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .blog-card {
+    padding: 1.35rem;
+    border-radius: 14px;
+  }
+
+  /* Contact */
+  .contact-info-panel,
+  .contact-form-panel {
+    padding: 1.35rem;
+    border-radius: 14px;
+  }
+
+  .contact-channel-card {
+    padding: 0.85rem 1rem;
+  }
+
+  .channel-left {
+    gap: 0.75rem;
+  }
+
+  .channel-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .toast-alert {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar-brand span {
+    display: none;
   }
 
   .project-metrics-grid {
     grid-template-columns: 1fr;
-  }
-
-  .modal-card {
-    padding: 1.5rem;
-  }
-
-  .toast-alert {
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
   }
 }

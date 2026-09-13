@@ -17,9 +17,9 @@ const SKILLS_DATA = {
       title: "Autonomous Agentic AI & Cognitive Systems",
       icon: "cpu",
       color: "from-cyan-500 to-blue-600",
-      description: "Moving far beyond static LLM completions into stateful, autonomous multi-agent swarms equipped with deterministic state machines, tool-calling, and verified guardrails.",
+      description: "Moving far beyond static LLM completions into stateful, autonomous multi-agent systems equipped with deterministic state machines, tool-calling, and verified guardrails.",
       competencies: [
-        "Autonomous Multi-Agent Swarm Orchestration",
+        "Autonomous Multi-Agent System Orchestration",
         "Deterministic State Machine Design (DAGs & Cyclic Graphs)",
         "Tool Execution Contracts & Safe Sandboxing",
         "Anti-Hallucination Guardrails & Citation Attribution",
@@ -28,6 +28,42 @@ const SKILLS_DATA = {
       ],
       frameworksAndTools: [
         "Google ADK", "LangGraph", "CrewAI", "PydanticAI", "Haystack", "AutoGen", "Instructor"
+      ]
+    },
+    {
+      id: "advanced-rag",
+      title: "Advanced RAG & Knowledge Systems",
+      icon: "search",
+      color: "from-teal-500 to-cyan-600",
+      description: "Enterprise retrieval-augmented generation architectures that go far beyond naive vector lookup, implementing layout-aware multimodal parsing, self-corrective state machines, and topological knowledge graphs.",
+      competencies: [
+        "Layout-Aware PDF & Financial Table Extraction (pdfplumber)",
+        "Chunking Strategy Benchmarking (Fixed, Recursive, Markdown, Semantic)",
+        "Hybrid Search & Reciprocal Rank Fusion (RRF) with Cross-Encoder Reranking",
+        "Agentic Self-Corrective RAG (CRAG) & Dynamic Relevance Grading",
+        "Topological Knowledge Graphs & Multi-Hop Reasoning (NetworkX, PyVis)",
+        "Heterogeneous Multi-Agent SQL & Document Fusion with Verifiable Citations"
+      ],
+      frameworksAndTools: [
+        "ChromaDB", "LangGraph", "NetworkX", "PyVis", "BM25Okapi", "pdfplumber", "Cross-Encoder", "SQLite"
+      ]
+    },
+    {
+      id: "timeseries-modeling",
+      title: "Time Series & Quantitative Forecasting",
+      icon: "activity",
+      color: "from-indigo-500 to-purple-600",
+      description: "Solving complex temporal challenges including non-stationarity, volatility clustering, regime switching, zero-inflated intermittent demand, and multi-sensor industrial failure detection.",
+      competencies: [
+        "Multi-Horizon Forecasting (SARIMAX, Fourier Harmonics, LightGBM Recursive Lags)",
+        "Multi-Sensor Industrial IoT Anomaly Detection & Error Reconstruction Autoencoders",
+        "Quantitative Volatility Cones (GARCH 1,1) & Macro Market Regimes (Gaussian HMM)",
+        "Dynamic Pairs Trading Beta Tracking via Kalman Filters & Engle-Granger Cointegration",
+        "Syntetos-Boylan Intermittent Demand & Optimal Minimum Trace (MinT) Reconciliation",
+        "Zero-Shot Foundation Forecasting (Chronos-style P10/P50/P90) & FFT Spectral Periodograms"
+      ],
+      frameworksAndTools: [
+        "LightGBM", "Statsmodels", "SciPy", "Scikit-Learn", "PyTorch", "Google Gemini 2.5 Flash", "Plotly"
       ]
     },
     {
@@ -112,6 +148,24 @@ const SKILLS_DATA = {
       ],
       frameworksAndTools: [
         "Docker", "uv", "Pydantic v2", "FastAPI", "Pytest", "Git / GitHub Actions CI/CD", "Ruff"
+      ]
+    },
+    {
+      id: "fullstack-ai-systems",
+      title: "Full-Stack AI Engineering & Interactive Apps",
+      icon: "terminal",
+      color: "from-cyan-500 to-emerald-600",
+      description: "Bridging core AI algorithms with robust web architectures, delivering interactive analytical dashboards, low-latency APIs, and production microservices.",
+      competencies: [
+        "High-Concurrency Async APIs & Schema Validation (FastAPI, Pydantic v2)",
+        "Interactive Analytical Dashboards (Streamlit, Plotly, PyVis)",
+        "Real-Time Telemetry Streaming & Event-Driven Architecture",
+        "Microservice Container Parity & Clean Decoupled Design",
+        "Client-Server State Synchronization & Dynamic Visualizations",
+        "End-to-End Enterprise Solution Delivery from Model to UI"
+      ],
+      frameworksAndTools: [
+        "FastAPI", "Streamlit", "Plotly", "Pydantic v2", "PyVis", "Uvicorn", "AsyncIO", "Docker"
       ]
     }
   ],
